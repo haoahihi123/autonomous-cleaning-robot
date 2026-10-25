@@ -2,7 +2,7 @@
 ## MÔ HÌNH TUẦN TRA LIÊN TỤC TRONG KHUÔN VIÊN ĐH SƯ PHẠM KỸ THUẬT (HCMUTE)
 ### Môi trường có vật cản động & Tầm nhìn giới hạn
 
-> **Đề tài Milestone 3:** Hệ thống tự động cho một xe dọn rác di chuyển và thu gom rác trong môi trường có vật cản động, tầm nhìn giới hạn (mô phỏng tại khuôn viên Trường Đại học Sư phạm Kỹ thuật TP.HCM / ĐH Công nghệ Kỹ thuật).
+> **Đề tài Milestone 3:** Hệ thống tự động cho một xe dọn rác di chuyển và thu gom rác trong môi trường có vật cản động, tầm nhìn giới hạn (mô phỏng tại khuôn viên Trường Đại học Công nghệ Kỹ thuật TP.HCM).
 
 ---
 
@@ -27,7 +27,7 @@ d:\xe tự hành\
 │
 ├── config.py             # Cấu hình hằng số, kích thước lưới, thông số vận tốc, bảng màu sắc & phông chữ
 ├── campus_map.py         # [PHẦN MAP] Bản đồ khuôn viên HCMUTE, các khối tòa nhà, hoa viên, hồ nước, cổng trường
-├── hcmute_real_map.png   # [ẢNH HIỆN TRẠNG 1/500] Bản vẽ quy hoạch mặt bằng thực tế Trường ĐH Sư phạm Kỹ thuật TP.HCM
+├── hcmute_real_map.png   # [ẢNH HIỆN TRẠNG 1/500] Bản vẽ quy hoạch mặt bằng thực tế Trường ĐH Công nghệ Kỹ thuật TP.HCM
 ├── algorithms.py         # [PHẦN THUẬT TOÁN] Thuật toán A*, Heuristic Manhattan, Boustrophedon Sweep, chọn ô bỏ sót thông minh
 ├── entities.py           # [PHẦN THỰC THỂ] Xe dọn rác thông minh (CleaningRobot), Sinh viên (DynamicObstacle), Rác (TrashItem)
 ├── renderer.py           # [PHẦN ĐỒ HỌA] Vẽ nền thực tế 1/500 hoặc 3D vector, xe rác chổi xoay, sóng radar, HUD Dashboard
@@ -40,7 +40,7 @@ d:\xe tự hành\
 ## 🏫 CHI TIẾT CÁC MODULE CHÍNH
 
 ### 1. `campus_map.py` — Bản đồ khuôn viên HCMUTE
-Xây dựng sơ đồ mặt bằng trường ĐH Sư phạm Kỹ thuật TP.HCM (Số 1 Võ Văn Ngân, Thủ Đức):
+Xây dựng sơ đồ mặt bằng trường ĐH Công nghệ Kỹ thuật TP.HCM (Số 1 Võ Văn Ngân, Thủ Đức):
 - **Tòa nhà Trung tâm Điều hành 12 tầng**: Khối kính xanh phản quang hiện đại (biểu tượng HCMUTE).
 - **Khu Giảng đường A, B, C**: Các tòa nhà giảng đường lớn của các khoa.
 - **Khu Xưởng Công nghệ E**: Khoa Cơ khí Chế tạo máy & Động lực (Ô tô).
@@ -67,7 +67,7 @@ Xây dựng sơ đồ mặt bằng trường ĐH Sư phạm Kỹ thuật TP.HCM 
 
 ### 4. `renderer.py` — Đồ họa siêu sắc nét & Tích hợp bản đồ hiện trạng 1/500
 - **Chế độ hiển thị kép (Dual-Mode View)**: Hỗ trợ chuyển đổi mượt mà giữa:
-  1. **Bản đồ hiện trạng 1/500 thực tế**: Hiển thị chính xác bản vẽ quy hoạch mặt bằng Trường ĐH Sư phạm Kỹ thuật TP.HCM với đầy đủ tên khối công trình, vệt sạch bán trong suốt giúp người xem dễ dàng quan sát xe rác chạy trên từng tuyến đường thực tế.
+  1. **Bản đồ hiện trạng 1/500 thực tế**: Hiển thị chính xác bản vẽ quy hoạch mặt bằng Trường ĐH Công nghệ Kỹ thuật TP.HCM với đầy đủ tên khối công trình, vệt sạch bán trong suốt giúp người xem dễ dàng quan sát xe rác chạy trên từng tuyến đường thực tế.
   2. **Bản đồ vector 3D sắc nét**: Vẽ chi tiết đổ bóng khối 3D, mặt kính xanh tòa Trung tâm, bồn hoa, đài phun nước, vệt xanh ngọc lấp lánh.
 - **Hiệu ứng đồ họa sống động**: Xe dọn rác có chổi xoay liên tục, đèn cảnh báo nhấp nháy, nón quét radar phát hiện vật cản.
 - **Bảng điều khiển HUD bên phải**: Hiển thị rõ số chu kỳ hiện tại, thanh tiến độ bao phủ %, số rác đã dọn, rác tồn, số ô bỏ sót cần bù và bảng log sự kiện thời gian thực.

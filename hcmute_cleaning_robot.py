@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 HỆ THỐNG TỰ ĐỘNG CHO XE DỌN RÁC DI CHUYỂN VÀ THU GOM RÁC
 TRONG MÔI TRƯỜNG CÓ VẬT CẢN ĐỘNG, TẦM NHÌN GIỚI HẠN

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 MODULE BẢN ĐỒ HIỆN TRẠNG 1/500 TRƯỜNG ĐH CÔNG NGHỆ KỸ THUẬT TP.HCM (48x36 Ô LƯỚI)
 Mô phỏng chính xác bố cục không gian và 4 nhóm màu khối công trình theo Bản đồ hiện trạng tỉ lệ 1/500:

@@ -481,7 +481,7 @@ class SharpRenderer:
 
         # Thẻ 3: Bảng phím tắt
         c3_y = c2_y + c2_h + 6
-        c3_h = 114
+        c3_h = 130
         c3_rect = pygame.Rect(card_x, c3_y, card_w, c3_h)
         pygame.draw.rect(self.screen, (226, 230, 236), c3_rect.move(0, 1), border_radius=8)
         pygame.draw.rect(self.screen, MAU_THE_TRANG, c3_rect, border_radius=8)
@@ -510,8 +510,8 @@ class SharpRenderer:
 
             self.chu(self.fonts.tiny, mo_ta, MAU_CHU_PHU, k_box.right + 6, ky + 1)
 
-        pygame.draw.line(self.screen, (243, 244, 246), (card_x + 12, c3_y + 94), (card_x + card_w - 12, c3_y + 94), 1)
-        self.chu(self.fonts.tiny, "Chuột trái: Thả rác  ·  Chuột phải: Thêm SV", MAU_CHU_MO, card_x + 12, c3_y + 97)
+        pygame.draw.line(self.screen, (243, 244, 246), (card_x + 12, c3_y + 107), (card_x + card_w - 12, c3_y + 107), 1)
+        self.chu(self.fonts.tiny, "Chuột trái: Thả rác  ·  Chuột phải: Thêm SV", MAU_CHU_MO, card_x + 12, c3_y + 111)
 
         # Thẻ 4: Nhật ký hoạt động
         c4_y = c3_y + c3_h + 6

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Các thuật toán tìm đường và quét bao phủ bản đồ
 - Thuật toán A* có tính hướng đi (giảm rẽ ngoằn ngoèo)

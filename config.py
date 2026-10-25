@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Cấu hình hệ thống, thông số mô phỏng và bảng màu giao diện
 Đồ án xe dọn rác tự hành - ĐH Công nghệ Kỹ thuật TP.HCM
@@ -6,6 +7,7 @@ Cấu hình hệ thống, thông số mô phỏng và bảng màu giao diện
 import sys
 import pygame
 
+# Cấu hình UTF-8 cho console Windows
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
     try:
         sys.stdout.reconfigure(encoding='utf-8')

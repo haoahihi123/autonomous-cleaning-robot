@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Bộ vẽ giao diện đồ họa Pygame cho mô phỏng xe dọn rác
 - Vẽ bản đồ trường, các khối nhà, cây xanh, đường đi
@@ -113,14 +114,14 @@ class SharpRenderer:
             nhan = self.fonts.map_label.render(b.code, True, b.text_color)
             surf.blit(nhan, nhan.get_rect(center=rect.center))
 
-        # 4.Vẽ Bảng Chú Thích Bản Đồ Hiện Trạng 1/500 ở góc Tây Bắc 
+        # 4.Vẽ Bảng Chú Thích Bản Đồ Hiện Trạng 1/500 ở góc Tây Bắc (đúng vị trí bản vẽ thật)
         self.ve_bang_chu_thich_1500(surf)
 
-        # 5.Vẽ các Cổng trường theo đúng hồ sơ thực tế 
+        # 5.Vẽ các Cổng trường theo đúng hồ sơ thực tế (Võ Văn Ngân & 3 cổng đường Lê Văn Chí)
         self.ve_nhan_cong(surf, "Cổng chính Võ Văn Ngân", int(24 * CELL_SIZE), (GRID_ROWS - 1) * CELL_SIZE - 2, "south")
         self.ve_nhan_cong(surf, "Cổng phụ", int(9 * CELL_SIZE), (GRID_ROWS - 1) * CELL_SIZE - 2, "south")
 
-        # 3 Cổng hướng ra đường Lê Văn Chí :
+        # 3 Cổng hướng ra đường Lê Văn Chí (đúng vị trí hành lang giao thông thông suốt):
         self.ve_nhan_cong(surf, "Cổng KTX Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(1.5 * CELL_SIZE), "east")
         self.ve_nhan_cong(surf, "Cổng phụ Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(9.5 * CELL_SIZE), "east")
         self.ve_nhan_cong(surf, "Cổng phụ Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(21.5 * CELL_SIZE), "east")
@@ -148,7 +149,7 @@ class SharpRenderer:
             (MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, "Tòa Trung tâm - Hội trường - TV"),
             (MAU_KHOI_XUONG, VIEN_KHOI_XUONG, "Xưởng TH - Maker Space - PTN"),
             (MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, "Văn phòng dịch vụ - Căn tin"),
-            (MAU_MAP_CO, (140, 195, 155), "Mảng cây xanh - Hoa viên"),
+            (MAU_MAP_CO, (140, 195, 155), "Mảng cây xanh - Bãi cỏ lớn"),
         ]
         for mau_nen, mau_vien, mo_ta in nhom_mau:
             o_mau = pygame.Rect(x, y + 1, 12, 8)
@@ -163,10 +164,10 @@ class SharpRenderer:
         y += 5
 
         ky_hieu = [
-            "• A1 - A5: Tòa Trung tâm & Giảng đường",
-            "• Khối B, Thư viện & Cánh Khối A",
-            "• Hội trường lớn, Khối A10, Sân V.Đức",
-            "• Khu C, D: Khoa Điện - Điện tử",
+            "• A1 - A5: Tòa Trung tâm Liền Khối",
+            "• Bãi cỏ lớn trước mặt Tòa A1 - A5",
+            "• Hội trường Lớn, A10 & Sân Việt Đức",
+            "• Khối E.0, E.2, E.3, E.4 & Căn Tin",
             "• Maker Space, Toyota & Cụm xưởng",
         ]
         for dong in ky_hieu:

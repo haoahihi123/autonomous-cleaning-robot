@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Các thực thể trong mô phỏng:
 - CleaningRobot: Xe dọn rác tự hành

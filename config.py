@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Cấu hình hệ thống, thông số mô phỏng và bảng màu giao diện
 Đồ án xe dọn rác tự hành - ĐH Công nghệ Kỹ thuật TP.HCM

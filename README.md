@@ -2,7 +2,7 @@
 ## MÔ HÌNH TUẦN TRA LIÊN TỤC TRONG KHUÔN VIÊN ĐH SƯ PHẠM KỸ THUẬT (HCMUTE)
 ### Môi trường có vật cản động & Tầm nhìn giới hạn
 
-> **Đề tài Milestone 3:** Hệ thống tự động cho một xe dọn rác di chuyển và thu gom rác trong môi trường có vật cản động, tầm nhìn giới hạn (mô phỏng tại khuôn viên Trường Đại học Công nghệ Kỹ thuật TP.HCM).
+> **TÊN ĐỀ TÀI:** Hệ thống tự động cho một xe dọn rác di chuyển và thu gom rác trong môi trường có vật cản động, tầm nhìn giới hạn (mô phỏng tại khuôn viên Trường Đại học Công nghệ Kỹ thuật TP.HCM).
 
 ---
 

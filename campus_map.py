@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 """
-MODULE BẢN ĐỒ HIỆN TRẠNG 1/500 SÂN TRƯỜNG HCMUTE (MỞ RỘNG 48x36 Ô LƯỚI)
+MODULE BẢN ĐỒ HIỆN TRẠNG 1/500 TRƯỜNG ĐH CÔNG NGHỆ KỸ THUẬT TP.HCM (48x36 Ô LƯỚI)
 Mô phỏng chính xác bố cục không gian và 4 nhóm màu khối công trình theo Bản đồ hiện trạng tỉ lệ 1/500:
-- Kích thước các tòa nhà dày dặn (4 - 8 ô), đảm bảo tầm nhìn cảm biến của xe không thể quét xuyên tòa nhà.
+- Đầy đủ các khối công trình: Toyota, Maker Space, Sân Việt Đức, Khối A10, Khối G, TH Khoa XD...
 """
 
 from config import (
@@ -30,140 +31,143 @@ class BuildingInfo:
 def create_hcmute_campus():
     grid = [[CELL_EMPTY_ROAD for _ in range(GRID_COLS)] for _ in range(GRID_ROWS)]
 
-    #1. Đánh dấu vùng ngoài ranh giới trường (CELL_OUTSIDE) tạo hình dáng thật của khuôn viên
+    # 1. Ranh giới ngoài:
     for r in range(GRID_ROWS):
         for c in range(GRID_COLS):
             if r == 0 or r == GRID_ROWS - 1 or c == 0 or c == GRID_COLS - 1:
                 grid[r][c] = CELL_OUTSIDE
-            elif r <= 18 and c <= 14:
+            # Vạt góc nhẹ ở đường Lê Văn Chí
+            elif r <= 2 and c >= 44:
                 grid[r][c] = CELL_OUTSIDE
-            elif r <= 3 and c >= 38:
-                grid[r][c] = CELL_OUTSIDE
-            elif r <= 7 and c >= 44:
+            # KHU VỰC DÀNH CHO BẢNG CHÚ THÍCH BẢN ĐỒ 1/500 (Góc Tây Bắc: col 0..12, row 0..13)
+            # Không có KTX, không có bãi cỏ KTX, đặt trọn vẹn Bảng Chú Thích không bị che khuất
+            elif r <= 13 and c <= 12:
                 grid[r][c] = CELL_OUTSIDE
 
-    #2. Danh sách các khối công trình tỉ lệ lớn trên lưới 48x36
+    # 2. Danh sách khối nhà CHUẨN XÁC THEO MAP GỐC
     buildings = [
-        BuildingInfo(
-            "TÒA D", (17, 2, 4, 6), "Khu D", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "TÒA B", (23, 2, 7, 6), "Khu B", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "Y TẾ", (32, 2, 4, 4), "Y tế", "Y tế",
-            MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, CHU_KHOI_DICHVU
-        ),
-        BuildingInfo(
-            "XƯỞNG THỰC HÀNH Ô TÔ", (37, 5, 6, 3), "X.Động Lực", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "TÒA C", (17, 10, 4, 7), "Khu C", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "THƯ VIỆN TÒA A", (23, 10, 7, 3), "Thư Viện", "trungtam",
-            MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM
-        ),
-        BuildingInfo(
-            "TÒA A", (23, 14, 7, 4), "Khu A", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "XƯỞNG THỰC HÀNH", (35, 9, 7, 4), "X.Cơ Khí", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "TÒA E1", (34, 14, 7, 4), "Khu E.1", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "XƯỞNG THỰC HÀNH", (2, 20, 4, 4), "Xưởng TH", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "TÒA E4", (8, 20, 5, 3), "Khu E.4", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "TÒA E2", (15, 20, 4, 4), "Căn Tin E2", "dichvu",
-            MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, CHU_KHOI_DICHVU
-        ),
-        BuildingInfo(
-            "KHU A", (28, 19, 4, 4), "", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "HỘI TRƯỜNG", (21, 19, 6, 4), "Hội Trường", "trungtam",
-            MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM
-        ),
-        BuildingInfo(
-            "TÒA F1", (34, 19, 7, 4), "Khu F.1", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "KHỐI XƯỞNG CƠ KHÍ MÁY E.3", (42, 14, 4, 9), "Xưởng E.3", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "TÒA E.5", (2, 26, 5, 7), "Khu E.5", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "PHÒNG THÍ NGHIỆM KHU G", (9, 25, 4, 3), "PTN Điện", "xuong",
-            MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG
-        ),
-        BuildingInfo(
-            "TÒA E4", (9, 29, 4, 4), "KHU E4", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "TÒA A2-A3", (17, 25, 4, 4), "Khu A2-A3", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "TÒA A-1", (21, 25, 6, 4), "Tòa TT A1", "trungtam",
-            MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM
-        ),
-        BuildingInfo(
-            "CÁNH TÒA A4-A5", (27, 25, 4, 4), "Khu A4-A5", "hoc",
-            MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC
-        ),
-        BuildingInfo(
-            "SÂN BÓNG", (34, 25, 11, 8), "Sân Bóng Đá", "sanbong",
-            MAU_MAP_SAN_BONG, (210, 205, 180), (90, 100, 80)
-        ),
+        # =====================================================================
+        # TRỤC TRUNG TÂM PHÍA BẮC (KHỐI C, D, B, THƯ VIỆN, KHỐI A)
+        # =====================================================================
+        # Khối C: Cực kỳ thanh mảnh, dài dọc bên trái Khối B
+        BuildingInfo("KHỐI C (KHOA ĐIỆN - ĐT)", (15, 2, 4, 6), "Khối C", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        # Khối B: Phòng học chung & PTN
+        BuildingInfo("KHỐI B", (21, 2, 7, 5), "Khối B", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        # Khối Thư viện: Khối hồng nằm ngang giữa B và A
+        BuildingInfo("THƯ VIỆN TRUNG TÂM", (21, 8, 7, 3), "Thư Viện", "trungtam",
+                     MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM),
+        # Khối D: Thanh mảnh, dài dọc bên trái Khối A
+        BuildingInfo("KHỐI D (KHOA ĐIỆN - ĐT)", (15, 9, 4, 7), "Khối D", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        # Khối A: Giảng đường chung
+        BuildingInfo("KHỐI A", (21, 12, 7, 4), "Khối A", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+
+        # =====================================================================
+        # HỘI TRƯỜNG LỚN, KHỐI A10, SÂN VIỆT ĐỨC (CHUẨN HÓA VỊ TRÍ SO VỚI MAP GỐC)
+        # Khối A10 nằm trên Sân Việt Đức.
+        # Hội Trường Lớn và Sân Việt Đức NẰM CÙNG HÀNG NGANG (cùng row 20..23)!
+        # =====================================================================
+        BuildingInfo("KHỐI A10", (22, 17, 6, 2), "Khối A10", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("HỘI TRƯỜNG LỚN", (14, 20, 6, 4), "Hội Trường", "trungtam",
+                     MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM),
+        BuildingInfo("SÂN VIỆT ĐỨC", (22, 20, 6, 4), "Sân Việt Đức", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+
+        # =====================================================================
+        # TÒA NHÀ TRUNG TÂM (MẶT TIỀN VÕ VĂN NGÂN)
+        # =====================================================================
+        BuildingInfo("CÁNH A2-A3", (14, 25, 5, 4), "Khu A2-A3", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("TÒA TRUNG TÂM A1", (21, 25, 7, 5), "Tòa TT A1", "trungtam",
+                     MAU_KHOI_TRUNGTAM, VIEN_KHOI_TRUNGTAM, CHU_KHOI_TRUNGTAM),
+        BuildingInfo("CÁNH A4-A5", (29, 25, 5, 4), "Khu A4-A5", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+
+        # =====================================================================
+        # PHÂN KHU ĐÔNG (MAKER SPACE, TOYOTA, SÂN BÓNG, CỤM XƯỞNG)
+        # =====================================================================
+        BuildingInfo("TRẠM Y TẾ", (30, 2, 4, 3), "Y tế", "dichvu",
+                     MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, CHU_KHOI_DICHVU),
+        BuildingInfo("XƯỞNG THỰC HÀNH Ô TÔ", (36, 2, 7, 3), "X.Động Lực", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("XƯỞNG NHIỆT - ĐIỆN LẠNH", (30, 6, 5, 4), "X.Nhiệt Lạnh", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("XƯỞNG CƠ KHÍ", (36, 6, 6, 4), "X.Cơ Khí", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("KHỐI F.1", (30, 11, 5, 4), "Khối F.1", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("TH KHOA XD", (36, 11, 7, 3), "TH Khoa XD", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("KHỐI G (TT VIỆT ĐỨC)", (30, 16, 5, 5), "Khối G", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("KHU MAKER SPACE", (36, 15, 6, 6), "Maker Space", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("DỊCH VỤ Ô TÔ TOYOTA", (43, 15, 3, 6), "Toyota", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("SÂN BÓNG ĐÁ NGOÀI TRỜI", (34, 23, 12, 10), "Sân Bóng Đá", "sanbong",
+                     MAU_MAP_SAN_BONG, (210, 205, 180), (90, 100, 80)),
+
+        # =====================================================================
+        # PHÂN KHU TÂY & TÂY NAM (KHỐI E CƠ KHÍ MÁY & CĂN TIN - DƯỚI BẢNG CHÚ THÍCH)
+        # Bảng chú thích kết thúc ở row 13.
+        # Hàng 14, 15 là đường giao thông thông thoáng (CELL_EMPTY_ROAD).
+        # Khối E.1 và Xưởng bắt đầu từ row 16.
+        # =====================================================================
+        BuildingInfo("XƯỞNG HÀN / IN", (1, 16, 4, 4), "Xưởng Hàn", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("KHỐI E.1 (CƠ KHÍ MÁY)", (6, 16, 6, 3), "Khối E.1", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("CĂN TIN - SIÊU THỊ E.2", (7, 20, 5, 3), "Căn Tin E2", "dichvu",
+                     MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, CHU_KHOI_DICHVU),
+        BuildingInfo("KHỐI E.0 (VP KHOA)", (1, 21, 4, 6), "Khối E.0", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("KHỐI E.3 (XƯỞNG CƠ KHÍ MÁY)", (6, 24, 6, 4), "Xưởng E.3", "xuong",
+                     MAU_KHOI_XUONG, VIEN_KHOI_XUONG, CHU_KHOI_XUONG),
+        BuildingInfo("KHỐI E.4 (BÁT GIÁC)", (6, 29, 6, 4), "Khối E.4", "hoc",
+                     MAU_KHOI_HOC, VIEN_KHOI_HOC, CHU_KHOI_HOC),
+        BuildingInfo("PTN CNVL & TTKT", (1, 28, 4, 5), "PTN CNVL", "dichvu",
+                     MAU_KHOI_DICHVU, VIEN_KHOI_DICHVU, CHU_KHOI_DICHVU),
     ]
 
+    occupied = {}
+    overlaps = []
     for b in buildings:
         col, row, w, h = b.rect
-        cell_type = CELL_SPORTS if b.category == "sanbong" else CELL_BUILDING
         for r in range(row, row + h):
             for c in range(col, col + w):
-                if 0 <= r < GRID_ROWS and 0 <= c < GRID_COLS:
-                    grid[r][c] = cell_type
+                if (r, c) in occupied:
+                    overlaps.append((b.name, occupied[(r, c)], r, c))
+                occupied[(r, c)] = b.name
+                cell_type = CELL_SPORTS if b.category == "sanbong" else CELL_BUILDING
+                grid[r][c] = cell_type
 
-    # 3. Bãi cỏ trước tòa trung tâm
-    for r in range(30, 33):
-        for c in range(23, 25):
+    if overlaps:
+        print("OVERLAPS DETECTED:")
+        for o in overlaps:
+            print(" ", o)
+    else:
+        print("PERFECT: No overlaps detected! All buildings cleanly placed.")
+
+    # 3. Hồ nước trước Tòa A1
+    for r in range(31, 34):
+        for c in range(21, 28):
             grid[r][c] = CELL_WATER
 
-    # 4. Mảng cây xanh / Hoa viên cảnh quan theo đúng bản đồ 1/500
+    # 4. Công viên & Mảng xanh
     gardens = [
-        (17, 30, 5, 3),  # Đồi cỏ bán nguyệt bên trái trước Tòa Trung tâm
-        (26, 30, 5, 3),  # Đồi cỏ bán nguyệt bên phải trước Tòa Trung tâm
-        (17, 18, 3, 1),  # Hoa viên nhỏ trước Hội trường
-        (31, 8, 2, 4),   # Mảng cây xanh dọc trục trung tâm Bắc
-        (31, 14, 2, 4),  # Hàng cây ngăn Khu D và Khu E.1
-        (7, 29, 1, 4),   # Vườn hoa khu Việt Đức
+        (12, 22, 2, 10), # Dải công viên xanh giữa Khối E và Tòa A1
+        (14, 18, 5, 2),  # Khoảng xanh trước Hội trường (dưới Khối D)
+        (29, 30, 4, 3),  # Mảng cỏ trước Sân bóng
+        (37, 21, 5, 1),  # Mảng cây xanh cạnh Maker Space
     ]
     for col, row, w, h in gardens:
         for r in range(row, row + h):
             for c in range(col, col + w):
-                if 0 <= r < GRID_ROWS and 0 <= c < GRID_COLS and grid[r][c] == CELL_EMPTY_ROAD:
+                if grid[r][c] == CELL_EMPTY_ROAD:
                     grid[r][c] = CELL_GARDEN
 
     return grid, buildings

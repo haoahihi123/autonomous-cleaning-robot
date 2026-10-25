@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 """
 Cấu hình hệ thống, thông số mô phỏng và bảng màu giao diện
-Đồ án xe dọn rác tự hành - ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)
+Đồ án xe dọn rác tự hành - ĐH Công nghệ Kỹ thuật TP.HCM (HCMUTE)
 """
 
 import sys

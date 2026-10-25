@@ -1,5 +1,5 @@
 """
-MODULE BẢN ĐỒ HIỆN TRẠNG 1/500 TRƯỜNG ĐH CNKT TP.HCM (MỞ RỘNG 48x36 Ô LƯỚI)
+MODULE BẢN ĐỒ HIỆN TRẠNG 1/500 SÂN TRƯỜNG HCMUTE (MỞ RỘNG 48x36 Ô LƯỚI)
 Mô phỏng chính xác bố cục không gian và 4 nhóm màu khối công trình theo Bản đồ hiện trạng tỉ lệ 1/500:
 - Kích thước các tòa nhà dày dặn (4 - 8 ô), đảm bảo tầm nhìn cảm biến của xe không thể quét xuyên tòa nhà.
 """

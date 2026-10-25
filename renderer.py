@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 """
 Bộ vẽ giao diện đồ họa Pygame cho mô phỏng xe dọn rác
 - Vẽ bản đồ trường, các khối nhà, cây xanh, đường đi
@@ -114,14 +114,14 @@ class SharpRenderer:
             nhan = self.fonts.map_label.render(b.code, True, b.text_color)
             surf.blit(nhan, nhan.get_rect(center=rect.center))
 
-        # 4.Vẽ Bảng Chú Thích Bản Đồ Hiện Trạng 1/500 ở góc Tây Bắc (đúng vị trí bản vẽ thật)
+        # 4.Vẽ Bảng Chú Thích Bản Đồ Hiện Trạng 1/500 ở góc Tây Bắc 
         self.ve_bang_chu_thich_1500(surf)
 
-        # 5.Vẽ các Cổng trường theo đúng hồ sơ thực tế (Võ Văn Ngân & 3 cổng đường Lê Văn Chí)
+        # 5.Vẽ các Cổng trường theo đúng hồ sơ thực tế 
         self.ve_nhan_cong(surf, "Cổng chính Võ Văn Ngân", int(24 * CELL_SIZE), (GRID_ROWS - 1) * CELL_SIZE - 2, "south")
         self.ve_nhan_cong(surf, "Cổng phụ", int(9 * CELL_SIZE), (GRID_ROWS - 1) * CELL_SIZE - 2, "south")
 
-        # 3 Cổng hướng ra đường Lê Văn Chí (đúng vị trí hành lang giao thông thông suốt):
+        # 3 Cổng hướng ra đường Lê Văn Chí :
         self.ve_nhan_cong(surf, "Cổng KTX Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(1.5 * CELL_SIZE), "east")
         self.ve_nhan_cong(surf, "Cổng phụ Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(9.5 * CELL_SIZE), "east")
         self.ve_nhan_cong(surf, "Cổng phụ Lê Văn Chí", (GRID_COLS - 1) * CELL_SIZE, int(21.5 * CELL_SIZE), "east")

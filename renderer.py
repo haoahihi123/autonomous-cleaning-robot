@@ -1,4 +1,3 @@
-
 """
 Bộ vẽ giao diện đồ họa Pygame cho mô phỏng xe dọn rác
 - Vẽ bản đồ trường, các khối nhà, cây xanh, đường đi

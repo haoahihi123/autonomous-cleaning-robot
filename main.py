@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Chương trình chính mô phỏng xe dọn rác tự động - HCMUTE
 Sinh viên thực hiện:

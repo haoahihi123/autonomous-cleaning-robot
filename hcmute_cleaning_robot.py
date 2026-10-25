@@ -2,7 +2,8 @@
 """
 HỆ THỐNG TỰ ĐỘNG CHO XE DỌN RÁC DI CHUYỂN VÀ THU GOM RÁC
 TRONG MÔI TRƯỜNG CÓ VẬT CẢN ĐỘNG, TẦM NHÌN GIỚI HẠN
-Mô phỏng tại: Khuôn viên Trường Đại học Công nghệ Kỹ thuật TP.HCM (HCMUTE)
+Mô phỏng tại: Khuôn viên Trường Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE)
+              (Tiền thân ĐH Sư phạm Kỹ thuật - ĐH Công nghệ Kỹ thuật)
 
 Thành viên thực hiện:
 - Nguyễn Ngọc Hải Yến - MSSV: 25139062 (Thuật toán quét bao phủ, A*, cập nhật đường đi)

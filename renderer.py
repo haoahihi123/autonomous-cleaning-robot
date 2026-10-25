@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Bộ vẽ giao diện đồ họa Pygame cho mô phỏng xe dọn rác
 - Vẽ bản đồ trường, các khối nhà, cây xanh, đường đi
@@ -137,7 +138,7 @@ class SharpRenderer:
         t1 = self.fonts.heading.render("BẢN ĐỒ HIỆN TRẠNG 1/500", True, MAU_CHU_CHINH)
         surf.blit(t1, (x, y))
         y += 15
-        t2 = self.fonts.tiny.render("ĐH Sư phạm Kỹ thuật TP.HCM", True, MAU_CHU_PHU)
+        t2 = self.fonts.tiny.render("ĐH Công nghệ Kỹ thuật TP.HCM", True, MAU_CHU_PHU)
         surf.blit(t2, (x, y))
         y += 14
         pygame.draw.line(surf, MAU_VIEN_THE, (x, y), (box.right - 8, y), 1)
@@ -348,7 +349,7 @@ class SharpRenderer:
         tx = 46
         self.chu(self.fonts.title, "Hệ Thống Xe Dọn Rác Tự Hành", MAU_CHU_CHINH, tx, 6)
         self.chu(self.fonts.small,
-                 "Bản đồ quy hoạch 1/500 ĐH SPKT TP.HCM · Hải Yến & Cảnh Hào",
+                 "Bản đồ quy hoạch 1/500 ĐH Công nghệ Kỹ thuật TP.HCM · Hải Yến & Cảnh Hào",
                  MAU_CHU_PHU, tx, 24)
 
         x = WINDOW_WIDTH - 12

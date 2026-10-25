@@ -1,10 +1,3 @@
-"""
-Chương trình chính mô phỏng xe dọn rác tự động - HCMUTE
-Sinh viên thực hiện:
-- Nguyễn Ngọc Hải Yến - MSSV: 25139062
-- Trương Cảnh Hào     - MSSV: 25139011
-"""
-
 import sys
 import os
 import random
